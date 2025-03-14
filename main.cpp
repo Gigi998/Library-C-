@@ -79,7 +79,7 @@ class Library {
 
   // FindMember and Findbook are pointers becaouse they can be nullPtr if there
   // is no record
-  Student* findStudent(int studentId) {
+  Student* findStudent(int& studentId) {
     for (Student& student : students) {
       if (student.getId() == studentId) {
         return &student;
@@ -88,7 +88,7 @@ class Library {
     return nullptr;
   }
 
-  Book* findBook(int bookId) {
+  Book* findBook(int& bookId) {
     for (Book& book : books) {
       if (book.getId() == bookId) {
         return &book;
@@ -97,17 +97,17 @@ class Library {
     return nullptr;
   }
 
-  void addBook(string title) {
+  void addBook(string& title) {
     books.push_back(Book(books.size() + 1, title));
     cout << "Book added: " << title << endl;
   }
 
-  void registerStudent(string name) {
+  void registerStudent(string& name) {
     students.push_back(Student(students.size() + 1, name));
     cout << "Student added: " << name << endl;
   }
 
-  void issueBook(int studentId, int bookId) {
+  void issueBook(int& studentId, int& bookId) {
     Student* student = findStudent(studentId);
     Book* book = findBook(bookId);
 
@@ -131,7 +131,7 @@ class Library {
     cout << "Book issued" << endl;
   }
 
-  void returnBook(int studentId, int bookId) {
+  void returnBook(int& studentId, int& bookId) {
     Student* student = findStudent(studentId);
     Book* book = findBook(bookId);
 
