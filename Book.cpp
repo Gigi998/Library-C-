@@ -11,9 +11,9 @@ Book::Book(int id, string title) {
   this->isIssued = false;
   this->ratesCounter = 3;
   this->rates = new int[ratesCounter];
-  rates[0] = 11;
-  rates[1] = 24;
-  rates[2] = 33;
+  rates[0] = 10;
+  rates[1] = 20;
+  rates[2] = 30;
 }
 // Destruct
 Book::~Book() {
@@ -59,7 +59,18 @@ void Book::getBookDetails() {
 void Book::issueBook() { isIssued = true; }
 void Book::returnBook() { isIssued = false; }
 
-void Book::rateBook(int& rate) {
-  ratesCounter += 1;
-  rates[ratesCounter] = rate;
+void Book::rateBook(int newRate) {
+  int* newRates =
+      new int[ratesCounter + 1];  // Crete new array with extra space
+  for (int i = 0; i < ratesCounter; i++) {
+    newRates[i] = rates[i];  // Copy existing values
+  }
+
+  newRates[ratesCounter] = newRate;  // Add new rate
+
+  delete[] rates;  // delete old rate
+
+  rates = newRates;  // asign newRates to rates
+
+  ratesCounter++;  // increase count
 }

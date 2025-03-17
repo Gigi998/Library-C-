@@ -7,7 +7,7 @@ using namespace std;
 // PRIVATE
 // FindMember and Findbook are pointers becaouse they can be nullPtr if there
 // is no record
-Student* Library::findStudent(int& studentId) {
+Student* Library::findStudent(int studentId) {
   for (Student& student : students) {
     if (student.getId() == studentId) {
       return &student;
@@ -16,7 +16,7 @@ Student* Library::findStudent(int& studentId) {
   return nullptr;
 }
 
-Book* Library::findBook(int& bookId) {
+Book* Library::findBook(int bookId) {
   for (Book& book : books) {
     if (book.getId() == bookId) {
       return &book;
@@ -37,7 +37,7 @@ void Library::registerStudent(string& name) {
   cout << "Student added: " << name << endl;
 }
 
-void Library::issueBook(int& studentId, int& bookId) {
+void Library::issueBook(int studentId, int bookId) {
   Student* student = findStudent(studentId);
   Book* book = findBook(bookId);
 
@@ -61,7 +61,7 @@ void Library::issueBook(int& studentId, int& bookId) {
   cout << "Book issued" << endl;
 }
 
-void Library::returnBook(int& studentId, int& bookId) {
+void Library::returnBook(int studentId, int bookId) {
   Student* student = findStudent(studentId);
   Book* book = findBook(bookId);
 
@@ -91,7 +91,7 @@ void Library::returnBook(int& studentId, int& bookId) {
   return;
 }
 
-void Library::rateBook(int& bookId, int& rate) {
+void Library::rateBook(int bookId, int rate) {
   Book* book = findBook(bookId);
 
   if (!book) {

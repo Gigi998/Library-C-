@@ -29,5 +29,5 @@ class Book {
   void issueBook();
   void returnBook();
 
-  void rateBook(int& rate);
+  void rateBook(int rate);
 };
