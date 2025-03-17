@@ -25,7 +25,9 @@ Book* Library::findBook(int& bookId) {
   return nullptr;
 }
 
+// When this function finish it will call destruct
 void Library::addBook(string& title) {
+  // This will trigger copy constructor call
   books.push_back(Book(books.size() + 1, title));
   cout << "Book added: " << title << endl;
 }

@@ -5,7 +5,44 @@
 
 using namespace std;
 
-Book::Book(int id, string title) : id(id), title(title), isIssued(false) {}
+Book::Book(int id, string title) {
+  this->id = id;
+  this->title = title;
+  this->isIssued = false;
+  this->ratesCounter = 3;
+  this->rates = new int[ratesCounter];
+  rates[0] = 11;
+  rates[1] = 24;
+  rates[2] = 33;
+}
+// Destruct
+Book::~Book() {
+  delete[] rates;
+  rates = nullptr;
+}
+
+// // Copy constr
+Book::Book(const Book& original) {
+  this->id = original.id;
+  this->title = original.title;
+  this->isIssued = false;
+  this->ratesCounter = original.ratesCounter;
+  // Must create new dynamic array
+  this->rates = new int[ratesCounter];
+  for (int i = 0; i < ratesCounter; i++) {
+    rates[i] = original.rates[i];
+  }
+}
+
+float Book::getAvarageRate() {
+  int sum = 0;
+  for (int i = 0; i < ratesCounter; i++) {
+    sum += rates[i];
+  }
+
+  float avgSum = sum / ratesCounter;
+  return avgSum;
+}
 
 int Book::getId() const { return id; }
 
@@ -13,7 +50,8 @@ bool Book::getBookIssueStatus() const { return isIssued; }
 
 void Book::getBookDetails() {
   cout << "ID: " << getId() << ", Title: " << title
-       << ", Isissued: " << isIssued << endl;
+       << ", Isissued: " << isIssued << ", Avarage rate: " << getAvarageRate()
+       << endl;
 }
 
 void Book::issueBook() { isIssued = true; }
