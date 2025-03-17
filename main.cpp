@@ -15,6 +15,8 @@ void showMenu() {
   cout << "4️⃣ Return Book\n";
   cout << "5️⃣ View All Books\n";
   cout << "6️⃣ View Students\n";
+  cout << "7 Rate book\n";
+  cout << "8 Exit\n";
   cout << "--------------------------------\n";
   cout << "Choose an option: ";
 }
@@ -29,9 +31,10 @@ void authForm(string& name, string& password) {
 
 int main() {
   Library myLibrary;
+  Librarian librarian;
 
-  Librarian librarian("admin", "admin");
   string name, password;
+  bool isProgramRunning = true;
 
   authForm(name, password);
 
@@ -42,7 +45,7 @@ int main() {
 
   librarian.userDetails();
 
-  while (true) {
+  while (isProgramRunning) {
     showMenu();
     int choice = 0;
     cin >> choice;
@@ -81,6 +84,18 @@ int main() {
         break;
       case 6:
         librarian.getStudents(myLibrary);
+        break;
+      case 7:
+        int rate;
+        cout << "Enter rate(number): ";
+        cin >> rate;
+        cout << "Enter the book Id: ";
+        cin >> bookId;
+        librarian.rateBook(myLibrary, bookId, rate);
+        break;
+      case 8:
+        cout << "Exiting" << endl;
+        isProgramRunning = false;
         break;
       default:
         cout << "Selected option invalid";

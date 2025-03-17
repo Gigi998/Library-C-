@@ -12,6 +12,9 @@ class Librarian : public User {
  public:
   Librarian(string name, string password);
 
+  // Default constr
+  Librarian();
+
   bool authenticate(const string& name, const string& password);
 
   void registerStudent(Library& library, string name);
@@ -23,6 +26,8 @@ class Librarian : public User {
   void returnBook(Library& library, int studentId, int bookId);
 
   void getStudents(Library& library);
+
+  void rateBook(Library& library, int bookId, int rate);
 
   void userDetails();
 };

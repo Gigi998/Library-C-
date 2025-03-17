@@ -7,6 +7,9 @@ using namespace std;
 Librarian::Librarian(string name, string password)
     : password(password), User(name) {}
 
+// Default constr
+Librarian::Librarian() : password("admin"), User("admin") {}
+
 bool Librarian::authenticate(const string& name, const string& password) {
   if (this->password == password && this->name == name) {
     cout << "Authenticated" << endl;
@@ -29,6 +32,10 @@ void Librarian::issueBook(Library& library, int studentId, int bookId) {
 
 void Librarian::returnBook(Library& library, int studentId, int bookId) {
   library.returnBook(studentId, bookId);
+}
+
+void Librarian::rateBook(Library& library, int bookId, int rate) {
+  library.rateBook(bookId, rate);
 }
 
 void Librarian::getStudents(Library& library) { library.getStudents(); }
