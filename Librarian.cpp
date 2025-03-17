@@ -7,6 +7,9 @@ using namespace std;
 Librarian::Librarian(string name, string password)
     : password(password), User(name) {}
 
+// Default constr
+Librarian::Librarian() : password("admin"), User("admin") {}
+
 bool Librarian::authenticate(const string& name, const string& password) {
   if (this->password == password && this->name == name) {
     cout << "Authenticated" << endl;

@@ -30,7 +30,7 @@ void authForm(string& name, string& password) {
 int main() {
   Library myLibrary;
 
-  Librarian librarian("admin", "admin");
+  Librarian librarian;
   string name, password;
 
   authForm(name, password);

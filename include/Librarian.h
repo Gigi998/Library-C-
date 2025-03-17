@@ -12,6 +12,9 @@ class Librarian : public User {
  public:
   Librarian(string name, string password);
 
+  // Default constr
+  Librarian();
+
   bool authenticate(const string& name, const string& password);
 
   void registerStudent(Library& library, string name);
