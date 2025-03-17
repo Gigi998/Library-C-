@@ -19,6 +19,7 @@ Book::Book(int id, string title) {
 Book::~Book() {
   delete[] rates;
   rates = nullptr;
+  cout << "Destruct" << endl;
 }
 
 // // Copy constr
@@ -32,6 +33,7 @@ Book::Book(const Book& original) {
   for (int i = 0; i < ratesCounter; i++) {
     rates[i] = original.rates[i];
   }
+  cout << "copy construct" << endl;
 }
 
 float Book::getAvarageRate() {

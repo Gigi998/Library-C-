@@ -31,8 +31,8 @@ void authForm(string& name, string& password) {
 
 int main() {
   Library myLibrary;
-
   Librarian librarian;
+
   string name, password;
   bool isProgramRunning = true;
 
