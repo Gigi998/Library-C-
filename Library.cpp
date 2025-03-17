@@ -91,6 +91,18 @@ void Library::returnBook(int& studentId, int& bookId) {
   return;
 }
 
+void Library::rateBook(int& bookId, int& rate) {
+  Book* book = findBook(bookId);
+
+  if (!book) {
+    cout << "Wrong book id, book not found" << endl;
+    return;
+  }
+
+  book->rateBook(rate);
+  cout << "Book rated with: " << rate << endl;
+}
+
 void Library::getStudents() {
   cout << "STUDENTS" << endl;
   for (Student& student : students) {

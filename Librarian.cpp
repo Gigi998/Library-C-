@@ -34,6 +34,10 @@ void Librarian::returnBook(Library& library, int studentId, int bookId) {
   library.returnBook(studentId, bookId);
 }
 
+void Librarian::rateBook(Library& library, int& bookId, int& rate) {
+  library.rateBook(bookId, rate);
+}
+
 void Librarian::getStudents(Library& library) { library.getStudents(); }
 
 void Librarian::userDetails() {

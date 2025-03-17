@@ -26,6 +26,8 @@ class Library {
 
   void getStudents();
 
+  void rateBook(int& bookId, int& rate);
+
  public:
   void getAllBooks();
 

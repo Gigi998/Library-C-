@@ -28,4 +28,6 @@ class Librarian : public User {
   void getStudents(Library& library);
 
   void userDetails();
+
+  void rateBook(Library& library, int& bookId, int& rate);
 };

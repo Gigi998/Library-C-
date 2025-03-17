@@ -56,3 +56,8 @@ void Book::getBookDetails() {
 
 void Book::issueBook() { isIssued = true; }
 void Book::returnBook() { isIssued = false; }
+
+void Book::rateBook(int& rate) {
+  ratesCounter += 1;
+  rates[ratesCounter] = rate;
+}
