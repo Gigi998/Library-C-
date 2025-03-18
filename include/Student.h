@@ -24,9 +24,7 @@ class Student : public User {
 
   void userDetails();
 
-  // Here we are expecting reference becaouse we want valid book value,
-  // reference must be valid object
-  void issueBook(Book& book);
+  void issueBook(Book* book);
 
   void returnBook();
 };

@@ -39,7 +39,8 @@ Book::Book(const Book& original) {
 float Book::getAvarageRate() {
   int sum = 0;
   for (int i = 0; i < ratesCounter; i++) {
-    sum += rates[i];
+    // Another way of dereferencing array values
+    sum += *(rates + i);
   }
 
   float avgSum = sum / ratesCounter;
@@ -63,7 +64,7 @@ void Book::rateBook(int newRate) {
   int* newRates =
       new int[ratesCounter + 1];  // Crete new array with extra space
   for (int i = 0; i < ratesCounter; i++) {
-    newRates[i] = rates[i];  // Copy existing values
+    newRates[i] = *(rates + i);  // Copy existing values
   }
 
   newRates[ratesCounter] = newRate;  // Add new rate

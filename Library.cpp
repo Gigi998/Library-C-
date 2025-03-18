@@ -57,7 +57,7 @@ void Library::issueBook(int studentId, int bookId) {
   }
 
   book->issueBook();
-  student->issueBook(*book);
+  student->issueBook(book);
   cout << "Book issued" << endl;
 }
 

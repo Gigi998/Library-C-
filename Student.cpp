@@ -25,8 +25,6 @@ void Student::userDetails() {
   };
 }
 
-// Here we are expecting reference becaouse we want valid book value,
-// reference must be valid object
-void Student::issueBook(Book& book) { issuedBook = &book; }
+void Student::issueBook(Book* book) { issuedBook = book; }
 
 void Student::returnBook() { issuedBook = nullptr; }
